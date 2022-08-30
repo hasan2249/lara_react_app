@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Repositories\CategoryRepository;
+use App\Http\Resources\CategoryResource;
 
 class CategoryController extends Controller
 {
@@ -23,7 +24,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return Category::select('id', 'title', 'level', 'disount')->get();
+        $categories = $this->category_repository->retriveAllCategories();
+        return CategoryResource::collection($categories);
     }
 
     /**

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Item;
 use Illuminate\Http\Request;
 use App\Repositories\ItemRepository;
+use App\Http\Resources\ItemResource;
 
 class ItemController extends Controller
 {
@@ -22,7 +23,8 @@ class ItemController extends Controller
      */
     public function index()
     {
-        return Item::select('id', 'name',  'disount', 'description', 'category_id', 'price')->get();
+        $items = $this->item_repository->retriveAllItems();
+        return ItemResource::collection($items);
     }
 
     /**

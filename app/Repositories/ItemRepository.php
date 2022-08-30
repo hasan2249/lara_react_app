@@ -60,4 +60,16 @@ class ItemRepository
             ]);
         }
     }
+
+    public function retriveAllItems()
+    {
+        try {
+            return \DB::table("items")->get();
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message' => 'Something goes wrong while deleting a category!!'
+            ]);
+        }
+    }
 }
