@@ -10,5 +10,5 @@ class Item extends Model
 {
     use HasFactory, ItemsRelationships;
 
-    protected $fillable = ['name', 'description', 'disount', 'catygory_id', 'price'];
+    protected $fillable = ['name', 'description', 'disount', 'category_id', 'price'];
 }
