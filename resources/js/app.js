@@ -12,4 +12,9 @@ require("./bootstrap");
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-require("./components/Example");
+require("./components/Home");
+
+import { render } from "react-dom";
+import Home from "./components/Home";
+
+render(<Home />, document.getElementById("root"));
