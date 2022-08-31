@@ -21,4 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('category', CategoryController::class);
+
 Route::apiResource('item', ItemController::class);
+
+Route::get('category/{category}/retrieve-subcatigories', [CategoryController::class, 'retrivalSubcatigories']);
