@@ -38,9 +38,7 @@ class ItemController extends Controller
         $validation = \Validator::make($request->all(), [
             'name' => 'required',
             'description' => 'required',
-            'disount' => 'required',
-            'price' => 'required',
-            'catygory_id' => 'required'
+            'price' => 'required'
         ]);
 
         if ($validation->fails()) {
@@ -51,7 +49,8 @@ class ItemController extends Controller
             'name',
             'description',
             'disount',
-            'price'
+            'price',
+            'category_id'
         ]);
 
         return $this->item_repository->create($data);

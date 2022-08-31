@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\Models\Item;
+use App\Models\Category;
 
 class ItemRepository
 {
@@ -14,6 +15,12 @@ class ItemRepository
     public function create(array $data)
     {
         try {
+            if (!isset($data['discount'])) {
+                // inherit category's discount
+                $cat = Category::find($data['category_id']);
+                $data['disount'] = $cat->disount;
+            }
+
             Item::create($data);
 
             return response()->json([
