@@ -38,8 +38,6 @@ class CategoryController extends Controller
     {
         $validation = \Validator::make($request->all(), [
             'title' => 'required',
-            'level' => 'required',
-            'disount' => 'required'
         ]);
 
         if ($validation->fails()) {
@@ -49,7 +47,8 @@ class CategoryController extends Controller
         $data = $request->only([
             'title',
             'level',
-            'disount'
+            'disount',
+            'category_id'
         ]);
 
         return $this->category_repository->create($data);
@@ -95,5 +94,17 @@ class CategoryController extends Controller
     public function destroy(Category $category)
     {
         return $this->category_repository->delete($category);
+    }
+
+    /**
+     * retrival subcatigories.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
+    public function retrivalSubcatigories(Category $category)
+    {
+        $sub_categories = $this->category_repository->retriveSubcategories($category);
+        return CategoryResource::collection($sub_categories);
     }
 }

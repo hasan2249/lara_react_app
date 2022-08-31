@@ -14,6 +14,26 @@ class CategoryRepository
     public function create(array $data)
     {
         try {
+            // if there is no specific discount
+            if (!isset($data['discount'])) {
+                // if the category has parent to inherit
+                if (!is_null($data['category_id'])) {
+
+                    // inherit category's discount
+                    $cat = Category::find($data['category_id']);
+                    $data['disount'] = $cat->disount;
+
+                    // level of category
+                    $data['level'] = $cat->level + 1;
+
+                    if ($data['level'] > 4) {
+                        return response()->json([
+                            'message' => 'Sorry, The maximum level of subcategories is 4'
+                        ], 500);
+                    }
+                }
+            }
+
             Category::create($data);
 
             return response()->json([
@@ -31,6 +51,26 @@ class CategoryRepository
     public function update(array $data, Category $category)
     {
         try {
+            // if there is no specific discount
+            if (!isset($data['discount'])) {
+                // if the category has parent to inherit
+                if (!is_null($data['category_id'])) {
+
+                    // inherit category's discount
+                    $cat = Category::find($data['category_id']);
+                    $data['disount'] = $cat->disount;
+
+                    // level of category
+                    $data['level'] = $cat->level + 1;
+
+                    if ($data['level'] > 4) {
+                        return response()->json([
+                            'message' => 'Sorry, The maximum level of subcategories is 4'
+                        ], 500);
+                    }
+                }
+            }
+
             $category->fill($data)->update();
 
             return response()->json([
@@ -69,6 +109,18 @@ class CategoryRepository
             \Log::error($e->getMessage());
             return response()->json([
                 'message' => 'Something goes wrong while deleting a category!!'
+            ]);
+        }
+    }
+
+    public function retriveSubcategories(Category $category)
+    {
+        try {
+            return \DB::table("categories")->where('category_id', $category->id)->get();
+        } catch (\Exception $e) {
+            \Log::error($e->getMessage());
+            return response()->json([
+                'message' => 'Something goes wrong while retrival subcategories'
             ]);
         }
     }
