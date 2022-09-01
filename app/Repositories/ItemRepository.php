@@ -17,8 +17,12 @@ class ItemRepository
         try {
             if (!isset($data['discount'])) {
                 // inherit category's discount
-                $cat = Category::find($data['category_id']);
-                $data['disount'] = $cat->disount;
+                if (isset($data['category_id'])) {
+                    $cat = Category::find($data['category_id']);
+                    $data['disount'] = $cat->disount;
+                }
+            } else {
+                $data['disount'] = 0;
             }
 
             Item::create($data);
@@ -71,7 +75,7 @@ class ItemRepository
     public function retriveAllItems()
     {
         try {
-            return \DB::table("items")->get();
+            return \DB::table("items")->orderBy('created_at', 'desc')->get();
         } catch (\Exception $e) {
             \Log::error($e->getMessage());
             return response()->json([
