@@ -15,14 +15,17 @@ class ItemRepository
     public function create(array $data)
     {
         try {
-            if (!isset($data['discount'])) {
-                // inherit category's discount
-                if (isset($data['category_id'])) {
+
+            // inherit category's discount
+            if (isset($data['category_id'])) {
+                if (!isset($data['discount'])) {
                     $cat = Category::find($data['category_id']);
                     $data['disount'] = $cat->disount;
+                } else {
+                    $data['disount'] = $data['discount'];
                 }
             } else {
-                $data['disount'] = 0;
+                $data['disount'] = $data['discount'] ?? 0;
             }
 
             Item::create($data);
