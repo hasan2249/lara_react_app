@@ -10,5 +10,5 @@ class Category extends Model
 {
     use HasFactory, CategoryRelationships;
 
-    protected $fillable = ['title', 'level', 'disount'];
+    protected $fillable = ['title', 'level', 'category_id', 'disount'];
 }
