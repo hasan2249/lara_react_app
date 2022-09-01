@@ -19,7 +19,7 @@ class ForginKeys extends Migration
         });
 
         Schema::table('items', function (Blueprint $table) {
-            $table->foreign('category_id')->references('id')->on('items')->onUpdate('RESTRICT')->onDelete('CASCADE');
+            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('RESTRICT')->onDelete('CASCADE');
         });
     }
 
