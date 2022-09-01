@@ -47,7 +47,7 @@ class CategoryController extends Controller
         $data = $request->only([
             'title',
             'level',
-            'disount',
+            'discount',
             'category_id'
         ]);
 

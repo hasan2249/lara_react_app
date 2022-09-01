@@ -48,7 +48,7 @@ class ItemController extends Controller
         $data = $request->only([
             'name',
             'description',
-            'disount',
+            'discount',
             'price',
             'category_id'
         ]);
