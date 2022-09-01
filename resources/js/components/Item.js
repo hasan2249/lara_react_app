@@ -21,6 +21,10 @@ const useStyles = makeStyles((theme) => ({
         color: "#2560ff",
         textAlign: "center",
     },
+    titleTable: {
+        color: "#ff0038",
+        textAlign: "center",
+    },
 }));
 
 function createData(
@@ -121,7 +125,7 @@ export default function Item() {
                 <Grid container spacing={3}>
                     <Grid item xs={12}>
                         <Typography className={classes.title} variant="h3">
-                            Item
+                            Items
                         </Typography>
                     </Grid>
                     <div className={classes.root}>
@@ -139,6 +143,7 @@ export default function Item() {
                                     id="standard-basic"
                                     onChange={handleChange}
                                     label="discount"
+                                    type="number"
                                     name="discount"
                                 />
                             </Grid>
@@ -147,6 +152,7 @@ export default function Item() {
                                     id="standard-basic"
                                     onChange={handleChange}
                                     label="price"
+                                    type="number"
                                     name="price"
                                 />
                             </Grid>
@@ -222,6 +228,12 @@ export default function Item() {
                     </div>
                 </Grid>
             </form>
+            <Grid item xs={12}>
+                <Typography className={classes.titleTable} variant="h5">
+                    Items table
+                </Typography>
+            </Grid>
+
             <ItemTable rows={items} header={header} />
         </div>
     );

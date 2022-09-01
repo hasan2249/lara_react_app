@@ -26,6 +26,10 @@ const useStyles = makeStyles((theme) => ({
         color: "#2560ff",
         textAlign: "center",
     },
+    titleTable: {
+        color: "#ff0038",
+        textAlign: "center",
+    },
 }));
 
 function createData(title, discount, level, created_at) {
@@ -186,6 +190,11 @@ export default function Cat() {
                     </div>
                 </Grid>
             </form>
+            <Grid item xs={12}>
+                <Typography className={classes.titleTable} variant="h5">
+                    Categories table
+                </Typography>
+            </Grid>
             <CatTable rows={subCategoris} header={header} />
         </div>
     );

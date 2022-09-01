@@ -23354,6 +23354,10 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["defaul
     title: {
       color: "#2560ff",
       textAlign: "center"
+    },
+    titleTable: {
+      color: "#ff0038",
+      textAlign: "center"
     }
   };
 });
@@ -23542,6 +23546,14 @@ function Cat() {
             })]
           })]
         })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      item: true,
+      xs: 12,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        className: classes.titleTable,
+        variant: "h5",
+        children: "Categories table"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_CatTable__WEBPACK_IMPORTED_MODULE_3__["default"], {
       rows: subCategoris,
@@ -23951,6 +23963,10 @@ var useStyles = (0,_material_ui_core_styles__WEBPACK_IMPORTED_MODULE_5__["defaul
     title: {
       color: "#2560ff",
       textAlign: "center"
+    },
+    titleTable: {
+      color: "#ff0038",
+      textAlign: "center"
     }
   };
 });
@@ -24069,7 +24085,7 @@ function Item() {
           children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
             className: classes.title,
             variant: "h3",
-            children: "Item"
+            children: "Items"
           })
         }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: classes.root,
@@ -24092,6 +24108,7 @@ function Item() {
                 id: "standard-basic",
                 onChange: handleChange,
                 label: "discount",
+                type: "number",
                 name: "discount"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -24101,6 +24118,7 @@ function Item() {
                 id: "standard-basic",
                 onChange: handleChange,
                 label: "price",
+                type: "number",
                 name: "price"
               })
             }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
@@ -24172,6 +24190,14 @@ function Item() {
             })]
           })]
         })]
+      })
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Grid__WEBPACK_IMPORTED_MODULE_6__["default"], {
+      item: true,
+      xs: 12,
+      children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_material_ui_core_Typography__WEBPACK_IMPORTED_MODULE_7__["default"], {
+        className: classes.titleTable,
+        variant: "h5",
+        children: "Items table"
       })
     }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_ItemTable__WEBPACK_IMPORTED_MODULE_3__["default"], {
       rows: items,
