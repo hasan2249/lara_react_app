@@ -25,3 +25,18 @@ Route::apiResource('category', CategoryController::class);
 Route::apiResource('item', ItemController::class);
 
 Route::get('category/{category}/retrieve-subcatigories', [CategoryController::class, 'retrivalSubcatigories']);
+
+//API route for register new user
+Route::post('/register', [App\Http\Controllers\API\AuthController::class, 'register']);
+//API route for login user
+Route::post('/login', [App\Http\Controllers\API\AuthController::class, 'login']);
+
+//Protecting Routes
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::get('/profile', function (Request $request) {
+        return auth()->user();
+    });
+
+    // API route for logout user
+    Route::post('/logout', [App\Http\Controllers\API\AuthController::class, 'logout']);
+});
